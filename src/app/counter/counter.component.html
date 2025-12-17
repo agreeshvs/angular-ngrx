@@ -1,1 +1,9 @@
-<h3>Counter Component</h3>
+<div class="app-counter-container">
+    <div class="app-counter">
+        <app-counter-value [count]="count"></app-counter-value>
+        <app-counter-button 
+        (incrementClicked)="onIncrement()"
+        (decrementClicked)="onDecrement()"
+        (resetClicked)="onReset()"></app-counter-button>
+    </div>
+</div>
