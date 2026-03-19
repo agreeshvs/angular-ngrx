@@ -9,8 +9,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { CounterComponent } from './counter/counter.component';
 import { CounterValueComponent } from './counter/counter-value/counter-value.component';
 import { CounterButtonComponent } from './counter/counter-button/counter-button.component';
-import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/state/counter.reducer';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
