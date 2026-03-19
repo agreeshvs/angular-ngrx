@@ -36,3 +36,6 @@
     background-color: #e74c3c;
     color: white;
 }
+.toggle-btn{
+    cursor: pointer;
+}
