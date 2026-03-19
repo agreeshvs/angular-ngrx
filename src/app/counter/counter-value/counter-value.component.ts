@@ -1,11 +1,29 @@
-import { Component, inject, Input } from '@angular/core';
-import { CounterService } from 'src/app/Service/counter.service';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-counter-value',
   templateUrl: './counter-value.component.html',
   styleUrls: ['./counter-value.component.css'],
 })
-export class CounterValueComponent {
-  @Input() count: number = 0;
+export class CounterValueComponent implements OnInit {
+  counter: number = 0;
+  counterSubscription: Subscription | null = null;
+
+  constructor(private store: Store<{ counter: { counter: number; }; }>) {
+
+  }
+
+  ngOnInit() {
+    this.counterSubscription = this.store.select("counter").subscribe((data: any) => {
+      this.counter = data.counter;
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.counterSubscription) {
+      this.counterSubscription.unsubscribe();
+    }
+  }
 }
