@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { CounterState } from '../state/counter.state';
 
 @Component({
   selector: 'app-counter-value',
@@ -11,7 +12,7 @@ export class CounterValueComponent implements OnInit {
   counter: number = 0;
   counterSubscription: Subscription | null = null;
 
-  constructor(private store: Store<{ counter: { counter: number; }; }>) {
+  constructor(private store: Store<{counter: CounterState}>) {
 
   }
 
