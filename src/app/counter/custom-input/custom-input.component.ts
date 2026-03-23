@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { customIncrement, toggleCustInput } from '../state/counter.actions';
 import { CounterState } from '../state/counter.state';
+import { getToggle } from '../state/counter.selector';
 
 @Component({
   selector: 'app-custom-input',
@@ -23,11 +24,11 @@ export class CustomInputComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.store.select('counter').subscribe( (data: any) =>{
+    this.store.select(getToggle).subscribe( (toggleValue: any) =>{
       console.log("Custom-input observable");
       
-      console.log(data);
-      this.showCustomInput = data.toggle;
+      console.log(toggleValue);
+      this.showCustomInput = toggleValue;
     })
     
   }
