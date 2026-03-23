@@ -1,6 +1,8 @@
 export interface CounterState{
-    counter: number
+    counter: number,
+    toggle: boolean
 }
 export const initialState: CounterState = {
-    counter: 0
+    counter: 0,
+    toggle: false
 };

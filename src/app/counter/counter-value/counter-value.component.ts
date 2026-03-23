@@ -18,6 +18,7 @@ export class CounterValueComponent implements OnInit {
 
   ngOnInit() {
     this.counterSubscription = this.store.select("counter").subscribe((data: any) => {
+      console.log("Counter value Observalble")
       this.counter = data.counter;
     });
   }
